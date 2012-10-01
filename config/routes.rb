@@ -4,7 +4,11 @@ RailsExpenseTracking::Application.routes.draw do
   namespace :api do
     resources :sessions
     
-    resources :tokens, :only => [:create, :destroy]
+    resources :tokens do
+      collection do
+        post 'validate'
+      end
+    end
   end
 
   # The priority is based upon order of creation:

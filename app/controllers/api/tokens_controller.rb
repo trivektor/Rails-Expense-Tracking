@@ -27,4 +27,16 @@ class Api::TokensController < ApplicationController
     end
   end
   
+  def validate
+    token = params[:user][:token]
+    
+    @user = User.find_by_authentication_token(token)
+    
+    if @user.nil?
+      render :json => {:success => -1, :errors => "Please login before proceeding"} and return
+    end
+    
+    render :json => {:success => 1}
+  end
+  
 end
