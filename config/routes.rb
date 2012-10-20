@@ -9,6 +9,8 @@ RailsExpenseTracking::Application.routes.draw do
         post 'validate'
       end
     end
+    
+    resources :expenses
   end
 
   # The priority is based upon order of creation:
