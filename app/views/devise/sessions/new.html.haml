@@ -1,6 +1,4 @@
-- @body_class = :devise
-
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => :devise}) do |f|
   
   .control-group
     = f.label :email, :class => :'control-label'
@@ -20,4 +18,4 @@
   .control-group
     = f.submit "Sign in", :class => [:btn, :'btn-primary']
 
-= render "devise/shared/links"
+  = render "devise/shared/links"
