@@ -1,6 +1,8 @@
 RailsExpenseTracking::Application.routes.draw do
   devise_for :users
   
+  match 'dashboard' => 'dashboard#index', :as => 'user_root'
+  
   namespace :api do
     resources :sessions
     
