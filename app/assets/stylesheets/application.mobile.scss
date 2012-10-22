@@ -35,7 +35,7 @@ form {
   margin-bottom: 0 !important;
 }
 
-$devise_form_border_color: #cdcdcd;
+$devise_form_border_color: #bcbcbc;
 
 .devise_layout {
   padding: 17px;
@@ -45,6 +45,7 @@ $devise_form_border_color: #cdcdcd;
     font-size: 30px;
     line-height: 100%;
     font-weight: normal;
+    text-align: center;
     margin-bottom: 15px;
     margin-top: 0;
     letter-spacing: -1px;
@@ -53,8 +54,10 @@ $devise_form_border_color: #cdcdcd;
 
 .devise_form {
   .input-section {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 1px 2px #eee inset;
   }
   
   .control-label {
@@ -66,7 +69,6 @@ $devise_form_border_color: #cdcdcd;
     border-style: solid;
     border-color: $devise_form_border_color;
     margin-bottom: 0;
-    background: #fff;
   }
   
   .control-group:first-of-type {
@@ -92,6 +94,7 @@ $devise_form_border_color: #cdcdcd;
     font-size: 1.1em;
     height: auto;
     padding: 14px;
+    letter-spacing: -1px;
    	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
   	box-sizing: border-box;
