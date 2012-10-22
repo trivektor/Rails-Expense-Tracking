@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsExpenseTracking</title>
+  <%= stylesheet_link_tag    "application.mobile", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
+  <%= csrf_meta_tags %>
+</head>
+<body class="<%= @body_class %>">
+
+<%= yield %>
+
+</body>
+</html>

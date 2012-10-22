@@ -1,21 +1,27 @@
-= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => :devise}) do |f|
-  
-  .control-group
-    = f.label :email, :class => :'control-label'
-    .controls
-      = f.email_field :email
+- @body_class = :devise_layout
 
-  .control-group
-    = f.label :password, :class => :'control-label'
-    .controls
-      = f.password_field :password
+%h1 Enter Your Information
 
-  - if devise_mapping.rememberable?
-    = f.label :remember_me, :class => :checkbox do
-      = f.check_box :remember_me 
-      Remember me
+.devise_form
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
     
-  .control-group
-    = f.submit "Sign in", :class => [:btn, :'btn-primary']
+    .input-section
+      .control-group
+        = f.label :email, :class => :'control-label'
+        .controls
+          = f.email_field :email, :placeholder => 'Email'
 
-  = render "devise/shared/links"
+      .control-group
+        = f.label :password, :class => :'control-label'
+        .controls
+          = f.password_field :password, :placeholder => 'Password'
+
+      / - if devise_mapping.rememberable?
+      /   = f.label :remember_me, :class => :checkbox do
+      /     = f.check_box :remember_me 
+      /     Remember me
+    
+    = f.submit "Sign in", :class => [:btn, :'btn-success']
+    = link_to "Sign up", new_user_registration_path, :class => :btn
+
+/= render "devise/shared/links"
