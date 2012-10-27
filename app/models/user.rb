@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_many :expenses
   
   def self.find_for_database_authentication(conditions={})
-    self.where("username = ?", conditions[:email]).limit(1).first ||
+    #self.where("username = ?", conditions[:email]).limit(1).first ||
     self.where("email = ?", conditions[:email]).limit(1).first
   end
 end
