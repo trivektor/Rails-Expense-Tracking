@@ -35,7 +35,8 @@ class Api::SessionsController < ApplicationController
   end
   
   def resource_params
-    params[resource_name]
+    #params[resource_name]
+    params[:user]
   end
   
   def destroy
