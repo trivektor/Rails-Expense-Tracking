@@ -38,4 +38,15 @@ class Api::SessionsController < ApplicationController
     params[resource_name]
   end
   
+  def destroy
+    user = User.find_by_authentication_token(params[:id])
+    
+    if user
+      user.logout
+      cookies.delete(:authentication_token)
+    end
+    
+    render :text => :ok
+  end
+  
 end
