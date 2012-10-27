@@ -4,10 +4,11 @@ class DashboardController < ApplicationController
   
   def index
     # Revisit
-    unless cookies[:auth_token]
-      current_user.ensure_authentication_token!
-      cookies[:auth_token] = current_user.authentication_token
-    end
+    current_user.ensure_authentication_token!
+    cookies[:auth_token] = {
+      :value    => current_user.authentication_token,
+      :expires  => 30.days.from_now
+    }
   end
   
 end
