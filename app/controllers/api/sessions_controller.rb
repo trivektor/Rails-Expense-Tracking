@@ -10,6 +10,7 @@ class Api::SessionsController < ApplicationController
     end
     
     if resource.valid_password?(params[:user][:password])
+      resource.ensure_authentication_token!
       render :json => {:success => 1, :auth_token => resource.authentication_token}
     else
       render :json => {:success => -1, :message => 'Username or password is incorrect'}
