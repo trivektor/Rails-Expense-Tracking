@@ -1,11 +1,13 @@
 class Api::SessionsController < ApplicationController
   
+  prepend_before_filter :require_no_authentication, :only => [:create ]
+  
   include Devise::Controllers::Helpers
   
   def create
     build_resource
     
-    resource = User.find_for_database_authentication(:login => params[:user])
+    resource = User.find_for_database_authentication(params[:user])
     
     if resource.nil?
       render :json => {:success => -1, :message => 'Username or password is incorrect'}
@@ -30,14 +32,13 @@ class Api::SessionsController < ApplicationController
         end
       end
     else
-      #self.resource = resource_class.new(hash)
-      self.resource = User.new(hash)
+      self.resource = resource_class.new(hash)
+      #self.resource = User.new(hash)
     end
   end
   
   def resource_params
-    #params[resource_name]
-    params[:user]
+    params[resource_name]
   end
   
   def destroy
