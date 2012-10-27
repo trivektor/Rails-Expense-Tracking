@@ -1,12 +1,8 @@
 class Api::SessionsController < ApplicationController
   
-  prepend_before_filter :require_no_authentication, :only => [:create ]
-  
   include Devise::Controllers::Helpers
   
   def create
-    build_resource
-    
     resource = User.find_for_database_authentication(params[:user])
     
     if resource.nil?
@@ -14,7 +10,6 @@ class Api::SessionsController < ApplicationController
     end
     
     if resource.valid_password?(params[:user][:password])
-      sign_in("user", resource)
       render :json => {:success => 1, :auth_token => resource.authentication_token}
     else
       render :json => {:success => -1, :message => 'Username or password is incorrect'}
