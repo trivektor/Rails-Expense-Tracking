@@ -42,7 +42,7 @@ class Api::SessionsController < ApplicationController
     user = User.find_by_authentication_token(params[:id])
     
     if user
-      user.logout
+      sign_out user
       cookies.delete(:authentication_token)
     end
     
