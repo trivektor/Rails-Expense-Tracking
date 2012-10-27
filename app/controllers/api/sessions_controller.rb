@@ -30,7 +30,8 @@ class Api::SessionsController < ApplicationController
         end
       end
     else
-      self.resource = resource_class.new(hash)
+      #self.resource = resource_class.new(hash)
+      self.resource = User.new(hash)
     end
   end
   
