@@ -9,8 +9,8 @@ class Receipt < ActiveRecord::Base
     },
     :s3_acl => :public_read,
     :s3_protocol => 'http',
-    :s3_bucket => :dom305,
-    :path => "images/:id/:style/:filename"
+    :s3_bucket => :expense_tracker,
+    :path => "receipts/:id/:style/:filename"
     
   attr_accessible :name,
                   :description,
