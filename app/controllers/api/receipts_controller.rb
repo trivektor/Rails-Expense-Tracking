@@ -4,6 +4,7 @@ class Api::ReceiptsController < ApplicationController
   
   def create
     receipt = Receipt.new(params[:receipt])
+    receipt.user_id = @user.id
     if receipt.save
       render :json => {:success => 1, :message => 'Receipt saved successfully'}
     else
