@@ -12,6 +12,8 @@ gem 'pg'
 gem 'activerecord-import'
 gem 'haml-rails'
 gem 'paperclip'
+gem 'paperclip-aws'
+gem 'aws-sdk'
 
 # Gems used only for assets and not required
 # in production environments by default.
