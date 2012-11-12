@@ -2,6 +2,10 @@ class Api::ReceiptsController < ApplicationController
   
   before_filter :find_user
   
+  def index
+    render :json => {:receipts => @user.receipts.latest_first}
+  end
+  
   def create
     receipt = Receipt.new(params[:receipt])
     receipt.user_id = @user.id
