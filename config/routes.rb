@@ -14,6 +14,8 @@ RailsExpenseTracking::Application.routes.draw do
     end
     
     resources :expenses
+    
+    resources :receipts
   end
 
   # The priority is based upon order of creation:

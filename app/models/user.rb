@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   
   has_many :expenses
+  has_many :receipts
   
   def self.find_for_database_authentication(conditions={})
     #self.where("username = ?", conditions[:email]).limit(1).first ||
