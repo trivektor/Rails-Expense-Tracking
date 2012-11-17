@@ -4,8 +4,8 @@ class Receipt < ActiveRecord::Base
   has_attached_file :image,
     :storage => :aws,
     :s3_credentials => {
-      :access_key_id => env['S3_ACCESS_KEY_ID'],
-      :secret_access_key => env['S3_SECRET_ACCESS_KEY']
+      :access_key_id => ENV['S3_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['S3_SECRET_ACCESS_KEY']
     },
     :s3_acl => :public_read,
     :s3_protocol => 'http',
