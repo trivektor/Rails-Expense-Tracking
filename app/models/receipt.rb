@@ -22,4 +22,13 @@ class Receipt < ActiveRecord::Base
     self.name = 'Receipt' if self.name.blank?
   end
   
+  def as_json(options={})
+    {
+      :name         => self.name,
+      :image_url    => self.image.url,
+      :description  => self.description,
+      :created_at   => self.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%d/%m/%Y %H:%M%P"),
+    }
+  end
+  
 end
