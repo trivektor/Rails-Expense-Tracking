@@ -146,7 +146,6 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-import
-  aws-sdk
   coffee-rails (~> 3.2.1)
   devise
   haml-rails
