@@ -3,7 +3,7 @@ class Receipt < ActiveRecord::Base
   
   has_attached_file :image,
     :styles => {
-      :medium => "300x300>",
+      :medium => "320x480>",
       :thumb  => "100x100>"
     },
     :storage => :aws,
